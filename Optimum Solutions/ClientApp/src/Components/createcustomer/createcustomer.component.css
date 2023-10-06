@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left:100px ;
+  }
+  
+  .box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    min-width: 1000px; /* Adjust the max width as per your design */
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  
+  .form-row {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .form-field {
+    flex: 1; /* Each form field in a row will take equal space */
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    
+  }
+  .container {
+    position: relative;
+  }
+  
+  .top-right-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    background-color: #091C42; /* Blue color, you can change it as per your preference */
+    color: primary;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .box{
+  max-height: 600px; /* Set the maximum height for the form container */
+  overflow-y: auto; /* Add vertical scroll if content overflows */
+}

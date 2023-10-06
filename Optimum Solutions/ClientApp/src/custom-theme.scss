@@ -1,0 +1,125 @@
+// Custom Theming for Angular Material
+
+// For more information: https://material.angular.io/guide/theming
+
+@use '../node_modules/@angular/material' as mat;
+
+// Plus imports for other components in your app.
+
+ 
+
+ 
+
+// Include the common styles for Angular Material. We include this here so that you only
+
+// have to load a single css file for Angular Material in your app.
+
+// Be sure that you only ever include this mixin once!
+
+@include mat.core();
+
+ 
+
+ 
+
+ 
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+
+ 
+
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+
+ 
+
+// hue. Available color palettes: https://material.io/design/color/
+
+ 
+
+ 
+
+ 
+
+// Material fonts in angular
+
+ 
+
+$dark-primary-text: black;
+
+ 
+
+$light-primary-text: white;
+
+ 
+
+ 
+
+$optimum-primary: ( 50: #000000, 100: #b3e3f7, 200: #81d4fa, 300: #57bfec, 400: #39b2e9, 500: #000000, 600: #01B88E, 700: #1c84c3, 800: #1973af, 900: #fc4e03, contrast: ( 50: $dark-primary-text, 100: $dark-primary-text, 200: $dark-primary-text, 300: $light-primary-text, 400: $dark-primary-text, 500: $light-primary-text, 600: $light-primary-text, 700: $light-primary-text, 800: $light-primary-text, 900: $light-primary-text ) );
+
+ 
+
+ 
+
+ 
+
+$optimum-accent: ( 50: #f0f7ea, 100: #dbeccb, 200: #c3dfaa, 300: #acd288, 400: #9ac86f, 500: #ffffff, 600: #7baf4f, 700: #689b44, 800: #56873b, 900: #38652b, contrast: ( 50: $dark-primary-text, 100: $dark-primary-text, 200: $dark-primary-text, 300: $light-primary-text, 400: $dark-primary-text, 500: $light-primary-text, 600: $light-primary-text, 700: $light-primary-text, 800: $light-primary-text, 900: $light-primary-text ) );
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+$primary: mat.define-palette($optimum-primary,900);
+
+ 
+
+$accent: mat.define-palette($optimum-accent, 500);
+
+ 
+
+ 
+
+ 
+
+// The warn palette is optional (defaults to red).
+
+ 
+
+$warn: mat.define-palette(mat.$red-palette);
+
+ 
+
+ 
+
+ 
+
+// Create the theme object. A theme consists of configurations for individual
+
+ 
+
+// theming systems such as "color" or "typography".
+
+ 
+
+$theme: mat.define-light-theme(( color: ( primary: $primary, accent: $accent, warn: $warn) ));
+
+ 
+
+/*Material Design
+
+ 
+
+Build beautiful, usable products faster. Material Design is an adaptable system—backed by open-source code—that helps teams build high quality digital experiences.
+
+*/
+
+@include mat.all-component-themes($theme);

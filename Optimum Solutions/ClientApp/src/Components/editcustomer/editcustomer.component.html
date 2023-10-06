@@ -1,0 +1,78 @@
+<app-toolbar></app-toolbar>
+<div class="container">
+  <div class="box">
+    <h2>Edit Customer</h2>
+    <form [formGroup]="dataForm" class="form" (submit)="onSubmit()">
+
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>FirstName</mat-label>
+          <input matInput formControlName="firstname" >
+          <mat-error *ngIf="dataForm.get('firstname')!.hasError('required')">First Name is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastname" >
+          <mat-error *ngIf="dataForm.get('lastname')!.hasError('required')">Last Name is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label>Gender</mat-label>
+          <input matInput formControlName="gender" >
+
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phone_Number" >
+          <mat-error *ngIf="dataForm.get('phone_Number')!.hasError('required')">Phone Number is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label>Currency</mat-label>
+          <input matInput formControlName="currency" >
+          <mat-error *ngIf="dataForm.get('currency')!.hasError('required')">Currency is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label>Balance</mat-label>
+          <input matInput formControlName="balance" >
+        </mat-form-field>
+      </div>
+ 
+
+     
+ 
+
+      <div class="form-row">
+          <mat-form-field class="form-field">
+              <mat-label>Country Code</mat-label>
+
+              <input matInput formControlName="country_code" >
+              <mat-error *ngIf="dataForm.get('country_code')!.hasError('required')">Country Code is required.</mat-error>
+
+            </mat-form-field>
+
+
+      </div>
+   
+     
+     
+
+      <div class="button-container" color="primary">
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </div>
+
+      <div class="message">
+        <p *ngIf="responseText" style="color: green;">{{ responseText }}</p>
+
+        <div *ngIf="errorMessage" style="color: red;" class="error-message">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

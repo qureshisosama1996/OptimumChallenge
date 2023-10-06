@@ -1,0 +1,48 @@
+<div mat-dialog-content class="custom-dialog-content">
+    <h4 mat-dialog-title class="center-title" style="font-size: 24px; font-weight: bold;">Customer Status</h4>
+    <br>
+    <!-- Success Message -->
+    <div *ngIf="data.response === 'sucess'" class="success-message">
+      <div>
+        <p class="success-text">Request Sucessful !, customer Created with id-{{data.id}}</p>
+      </div>
+      <br>
+      <div class="error-actions">
+        <button mat-raised-button color="primary" class="action-button" (click)="onSubmit()">Okay</button>
+      </div>
+    </div>
+  
+    <!-- Error Message -->
+    <div *ngIf="data.response === 'failed'" class="error-message">
+      <p class="error-title">Request Failed !</p>
+      <div class="error-content">
+        <p class="error-text">Error:</p>
+        <p class="error-text">Request not accepted by the Server,Some fields might be missing or invalid!</p>
+      </div>
+      <div class="error-actions">
+        <button mat-raised-button color="primary" class="action-button" (click)="onSubmit()">Okay</button>
+      </div>
+    </div>
+
+    <div *ngIf="data.response === 'sucess-update'" class="success-message">
+      <div>
+        <p class="success-text">Request Sucessful !, customer updated with id -{{data.id}}</p>
+      </div>
+      <br>
+      <div class="error-actions">
+        <button mat-raised-button color="primary" class="action-button" (click)="onSubmit()">Okay</button>
+      </div>
+    </div>
+  
+    <div *ngIf="data.response === 'failed-update'" class="error-message">
+      <p class="error-title">Request Failed !</p>
+      <div class="error-content">
+        <p class="error-text">Error:</p>
+        <p class="error-text">Request not accepted by the Server,Some fields might be missing or invalid like Country Code is to be in the format "US"!</p>
+      </div>
+      <div class="error-actions">
+        <button mat-raised-button color="primary" class="action-button" (click)="onSubmit()">Okay</button>
+      </div>
+    </div>
+  </div>
+  

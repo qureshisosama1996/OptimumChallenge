@@ -1,0 +1,169 @@
+<app-toolbar></app-toolbar>
+
+<div class="container">
+    <div class="box">
+      <h2>Create New Customer</h2>
+      <form [formGroup]="dataForm" class="form" (submit)="onSubmit()">
+        <h5>Contact Details</h5>
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <mat-label>ID(Auto Generated)</mat-label>
+            <input matInput formControlName="id" readonly="true" >
+          </mat-form-field>
+  
+          <mat-form-field class="form-field">
+            <mat-label>Salutation</mat-label>
+            <mat-select formControlName="salutation">
+              <mat-option *ngFor="let salutation of salutationOptions" [value]="salutation">{{ salutation }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+  
+          <mat-form-field class="form-field">
+            <mat-label>Initials</mat-label>
+            <input matInput formControlName="initials" >
+          </mat-form-field>
+        </div>
+  
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <mat-label>FirstName</mat-label>
+            <input matInput formControlName="firstname" >
+            <mat-error *ngIf="dataForm.get('firstname')!.hasError('required')">First Name is required.</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="form-field">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastname" >
+            <mat-error *ngIf="dataForm.get('lastname')!.hasError('required')">Last Name is required.</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="form-field">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option *ngFor="let gender of genderOptions" [value]="gender">{{ gender }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="dataForm.get('gender')!.hasError('required')">Gender is required.</mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phone_Number" >
+            <mat-error *ngIf="dataForm.get('phone_Number')!.hasError('required')">Phone Number is required.</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="form-field">
+            <mat-label>Currency</mat-label>
+            <input matInput formControlName="currency" >
+            <mat-error *ngIf="dataForm.get('currency')!.hasError('required')">Currency is required.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-field">
+            <mat-label>Balance</mat-label>
+            <input matInput formControlName="balance" >
+          </mat-form-field>
+        </div>
+        <h5>Country Details</h5>
+
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <mat-label>First Name Country Rank</mat-label>
+            <input matInput formControlName="firstname_country_rank" >
+          </mat-form-field>
+  
+          <mat-form-field class="form-field">
+            <mat-label>First Name Country Frequency</mat-label>
+            <input matInput formControlName="firstname_country_frequency" >
+          </mat-form-field>
+        </div>
+  
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <mat-label>Last Name Country Rank</mat-label>
+            <input matInput formControlName="lastname_country_rank" >
+          </mat-form-field>
+  
+          <mat-form-field class="form-field">
+            <mat-label>Last Name Country Frequency</mat-label>
+            <input matInput formControlName="lastname_country_frequency" >
+          </mat-form-field>
+        </div>
+   
+  
+        <div class="form-row">
+            <mat-form-field class="form-field">
+                <mat-label>Country Code</mat-label>
+
+                <input matInput formControlName="country_code" readonly="true">
+                <mat-error *ngIf="dataForm.get('country_code')!.hasError('required')">Country Code is required.</mat-error>
+
+              </mat-form-field>
+
+          <mat-form-field class="form-field">
+            <mat-label>Country Code Alpha</mat-label>
+            <input matInput formControlName="country_code_alpha" >
+          </mat-form-field>
+  
+          <mat-form-field class="form-field">
+            <mat-label>Country Name</mat-label>
+            <input matInput formControlName="country_name" >
+          </mat-form-field>
+  
+        </div>
+        <h5>Language </h5>
+        <div class="form-row">
+            
+          <mat-form-field class="form-field">
+            <mat-label>Primary Language Code</mat-label>
+            <input matInput formControlName="primary_language_code" >
+          </mat-form-field>
+
+          <mat-form-field class="form-field">
+            <mat-label>Primary Language</mat-label>
+            <input matInput formControlName="primary_language" >
+          </mat-form-field>
+        </div>
+          <h5>Login </h5>
+          <div class="form-row">
+            <mat-form-field class="form-field">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" >
+              <mat-error *ngIf="dataForm.get('email')!.hasError('required')">Email is required.</mat-error>
+
+            </mat-form-field>
+    
+            <mat-form-field class="form-field">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password"  type="password">
+              <mat-error *ngIf="dataForm.get('password')!.hasError('required')">password is required.</mat-error>
+
+
+            </mat-form-field>
+    
+            <mat-form-field class="form-field">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput formControlName="confirmPassword" type="password">
+                <mat-error *ngIf="dataForm.get('confirmPassword')!.hasError('required')">Confirm Password is required.</mat-error>
+                <mat-error *ngIf="dataForm.get('confirmPassword')!.hasError('mustMatch')">Passwords must match.</mat-error>
+              </mat-form-field>
+
+          </div>
+       
+  
+        <div class="button-container" color="primary">
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+        </div>
+  
+        <div class="message">
+          <p *ngIf="responseText" style="color: green;">{{ responseText }}</p>
+  
+          <div *ngIf="errorMessage" style="color: red;" class="error-message">
+            {{ errorMessage }}
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
